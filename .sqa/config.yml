@@ -2,3 +2,4 @@ config:
   project_repos:
     myrepo:
       repo: 'https://github.com/orviz/sampleproject'
+sqa-criteria:
