@@ -1,4 +1,33 @@
 config:
   project_repos:
-    myrepo:
-      repo: 'https://github.com/orviz/sampleproject'
+    deepaas:
+      repo: https://github.com/indigo-dc/DEEPaaS
+      dockerhub: wtf/wtf
+      dockertag: one
+    deepaas2:
+      repo: https://github.com/indigo-dc/DEEPaaS
+
+sqa-criteria:
+  qc-style:
+    repos:
+      deepaas:
+        tox:
+          testenv: pep8
+  qc-coverage:
+    repos:
+      deepaas:
+        container: ojete
+        tox:
+          testenv: 
+            - cover
+            - cobertura
+  qc-security:
+    repos:
+      deepaas:
+        tox:
+          testenv: bandit
+
+environment:
+    aGIT: wtf
+
+timeout: 0
