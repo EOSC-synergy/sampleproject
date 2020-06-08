@@ -30,4 +30,4 @@ sqa-criteria:
 environment:
     aGIT: wtf
 
-timeout: 0
+timeout: 1
