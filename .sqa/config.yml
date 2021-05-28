@@ -1,33 +1,19 @@
 config:
+  credentials:
+  - id: synergy_dockerhub_bot_pass
+    password_var: JPL_DOCKERPASS
+    username_var: JPL_DOCKERUSER
   project_repos:
-    deepaas:
-      repo: https://github.com/indigo-dc/DEEPaaS
-      dockerhub: wtf/wtf
-      dockertag: one
-    deepaas2:
-      repo: https://github.com/indigo-dc/DEEPaaS
-
-sqa-criteria:
-  qc-style:
-    repos:
-      deepaas:
-        tox:
-          testenv: pep8
-  qc-coverage:
-    repos:
-      deepaas:
-        container: ojete
-        tox:
-          testenv: 
-            - cover
-            - cobertura
-  qc-security:
-    repos:
-      deepaas:
-        tox:
-          testenv: bandit
-
+    github.com/EOSC-synergy/o3api:
+      branch: master
+      repo: https://github.com/EOSC-synergy/o3api
 environment:
-    aGIT: wtf
-
-timeout: 1
+  JPL_DOCKERPUSH: o3asapi
+sqa_criteria:
+  qc_functional:
+    repos:
+      this_repo:
+        commands:
+        - echo 'building docker image for o3as api..'
+        container: o3asapi
+timeout: 600
