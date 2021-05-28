@@ -1,0 +1,24 @@
+services:
+  o3asapi:
+    build:
+      args: {}
+      context: .
+      dockerfile: ./docker/Dockerfile
+    command: sleep 6000000
+    hostname: o3asapi
+    image: eoscsynergyapps/o3asapi-test
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+  o3asapi-kk:
+    command: sleep 6000000
+    hostname: o3asapi-kkn
+    image: python:3
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+version: '3.7'
