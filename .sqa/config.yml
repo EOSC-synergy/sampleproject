@@ -1,19 +1,17 @@
 config:
-  credentials:
-  - id: synergy_dockerhub_bot_pass
-    password_var: JPL_DOCKERPASS
-    username_var: JPL_DOCKERUSER
+  credentials: []
   project_repos:
     github.com/EOSC-synergy/o3api:
       branch: master
       repo: https://github.com/EOSC-synergy/o3api
-environment:
-  JPL_DOCKERPUSH: o3asapi
+environment: {}
 sqa_criteria:
-  qc_functional:
+  qc_style:
     repos:
       this_repo:
-        commands:
-        - echo 'building docker image for o3as api..'
-        container: o3asapi
+        container: o3asapi-testing
+        tox:
+          testenv:
+          - ALL
+          tox_file: ./tox.ini
 timeout: 600
