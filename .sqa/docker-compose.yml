@@ -1,21 +1,8 @@
 services:
-  o3asapi:
-    build:
-      args: {}
-      context: .
-      dockerfile: ./docker/Dockerfile
+  o3asapi-testing:
     command: sleep 6000000
-    hostname: o3asapi
-    image: eoscsynergyapps/o3asapi-test
-    volumes:
-    - source: ./
-      target: /sqaaas-build
-      type: bind
-    working_dir: /sqaaas-build
-  o3asapi-kk:
-    command: sleep 6000000
-    hostname: o3asapi-new
-    image: python:3
+    hostname: o3asapi-testing
+    image: indigodatacloud/ci-images:python3.6
     volumes:
     - source: ./
       target: /sqaaas-build
